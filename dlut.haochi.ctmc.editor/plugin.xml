@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated ctmc -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="top.presentation.TopModelWizardID"
+            name="%_UI_TopModelWizard_label"
+            class="top.presentation.TopModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/TopModelFile.gif">
+         <description>%_UI_TopModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated ctmc -->
+      <editor
+            id="top.presentation.TopEditorID"
+            name="%_UI_TopEditor_label"
+            icon="icons/full/obj16/TopModelFile.gif"
+            extensions="top"
+            class="top.presentation.TopEditor"
+            contributorClass="top.presentation.TopActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

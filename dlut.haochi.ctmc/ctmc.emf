@@ -1,0 +1,44 @@
+@namespace(
+	 uri="http://a.b.c/x/y/Z",
+	 prefix="p")
+package top;
+
+class Ctmc{
+	attr String name;
+	val State[*] states;
+	val Transition[*] transitions;
+	val Reward[*] rewards;
+	val Formula[*] formulas;
+}
+
+class State{
+	attr int name;
+	
+}
+
+class Transition{
+	attr String name;
+	attr double probability;	
+	ref State[*]#outgoing from;
+	ref State[*]#incoming to;
+	val Action[*] actions;
+	val Formula[*] formulas;
+}
+
+class Reward{
+	attr String name;
+	val Action[*] actions;
+	
+}
+
+class Action{
+	attr String name;
+	attr double value;
+	val Formula[*] formulas;
+}
+
+class Formula{
+	attr String name;
+}
+
+

@@ -1,0 +1,39 @@
+ctmc
+
+	[%for(t in Transition.all ){%]
+	[%if(t.name != null){%]
+const double [%=t.name%];
+		[%}%]
+	[%}%]
+	
+[%for(f in Formula.all){%]
+	[%=f.name%]
+[%}%]	
+	
+module 	[%=Ctmc.name%]
+	
+	state : [0..[%=State.all.size()-1%]] init 0	;
+	
+		[%for(t in Transition.all ){%]
+		[%if(t.probability != 0){%]
+		[[%=t.actions.name.concat()%]]	(state=[%=t.from.name.concat()%]) -> [%=t.probability%] : (state'=[%=t.to.name.concat()%]);	
+		[%}%]
+		[%if(t.probability == 0){%]
+		[[%=t.actions.name.concat()%]]	(state=[%=t.from.name.concat()%]) -> [%=t.name%] : (state'=[%=t.to.name.concat()%]);	
+		[%}%]
+		[%}%]
+		
+endmodule
+
+[%for(r in Reward.all){%]
+rewards"[%=r.name%]"
+	[%for(a in r.actions){%]
+	[%if(a.value != 0){%]
+	[[%=a.name%]] true : [%=a.value%];	
+	[%}%]
+	[%if(a.value == 0){%]
+	[[%=a.name%]] true : [%=a.formulas.first().name%];	
+	[%}%]
+	[%}%]
+endrewards
+[%}%]

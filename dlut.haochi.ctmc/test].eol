@@ -1,0 +1,22 @@
+//State.all.size().println();
+//for(t in Transition.all){
+//	t.probability.notEmpty().println();
+//}
+//for(r in Reward.all){
+//	r.name.println();
+//	//r.actions.name.concat() true : r.actions.value;
+//
+//}
+
+//for(f in Formula){
+//	f.name.println();
+//
+//
+//}
+
+for(t in Transition.all ){
+	if(t.name != ""){
+		t.name.println();
+	
+	}
+}
